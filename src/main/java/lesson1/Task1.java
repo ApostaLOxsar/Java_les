@@ -1,5 +1,6 @@
 package lesson1;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Task1 {
@@ -60,8 +61,19 @@ public class Task1 {
     }
 
     private static void ex5() {
+        {
+            try (FileWriter writer = new FileWriter("notes3.txt", false)) {
+                // запись всей строки
+                String text = "Hello Gold!";
+                writer.write(text + "1\n");
+                writer.write(text + "2\n");
+                writer.write(text + "3\n");
+                writer.flush();
+            } catch (IOException ex) {
+
+                System.out.println(ex.getMessage());
+            }
+        }
 
     }
-
-
 }
