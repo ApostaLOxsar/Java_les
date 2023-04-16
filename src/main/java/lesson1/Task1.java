@@ -3,13 +3,15 @@ package lesson1;
 import java.io.*;
 import java.util.Scanner;
 
-public class Task1 {
+public class Task {
     public static void main(String[] args) {
         //ex1();
         //ex2();
         //ex3();
         //ex4();
-        ex5();
+        //ex5();
+        //Les1_HW-------------------------------------------
+        task1HW();
     }
 
     private static void ex1() {
@@ -74,6 +76,11 @@ public class Task1 {
                 System.out.println(ex.getMessage());
             }
         }
+
+    }
+
+    //Les1_HW--------------------------------------
+    private static void task1HW() {
 
     }
 }
