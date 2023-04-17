@@ -2,9 +2,7 @@ package lesson1;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task {
     public static void main(String[] args) {
@@ -17,7 +15,8 @@ public class Task {
         //task1HW();
         //task2HW();
         //task3HW();
-        task4HW();
+        //task4HW();
+        task5HW();
     }
 
     private static void ex1() {
@@ -86,9 +85,9 @@ public class Task {
     }
 
 
+
     //Les1_HW--------------------------------------
     //Task1
-
     private static void task1HW() {
         Scanner iScaner = new Scanner(System.in);
         int len = 0;
@@ -121,8 +120,8 @@ public class Task {
         return result;
     }
 
-    //task2
 
+    //task2
     private static void task2HW() {
         Scanner iScaner = new Scanner(System.in);
         int lens = 0; //как можно этого избежать или это не критично?
@@ -154,8 +153,9 @@ public class Task {
         System.out.printf("Минимальное в массиве = %d\n", minInArr);
         System.out.printf("Максимальное в массиве = %d", maxInArr);
     }
-    //task3
 
+
+    //task3
     private static void task3HW() {
         Scanner iScaner = new Scanner(System.in);
         int arrSize = 0;
@@ -182,18 +182,42 @@ public class Task {
 
     }
 
+
     //task4
     private static void task4HW() {
         Scanner iScaner = new Scanner(System.in);
         System.out.print("Введите ваше имя: ");
         String name = iScaner.nextLine();
-        Date date = new Date();
 
-        SimpleDateFormat dateNow = new SimpleDateFormat("hh:mm");
-        System.out.println(dateNow.format(date));
+        GregorianCalendar calendar = new GregorianCalendar();
+        int time = calendar.get(Calendar.HOUR_OF_DAY);
 
-        if(date.before())
-
+        if (time >= 5 && time < 12){
+            System.out.printf("Доброе утро, %s", name);
+        } else if (time >= 12 && time < 18) {
+            System.out.printf("Добрый день, %s", name);
+        } else if (time >=18 && time < 23) {
+            System.out.printf("Добрый вечер, %s", name);
+        } else {
+            System.out.printf("Доброй ночи, %s", name);
+        }
     }
 
+
+    //task5
+    private static void task5HW() {
+        Scanner iScaner = new Scanner(System.in);
+        int[] arr = {0,1,2,3,4,5,6,7,8,9};
+
+        System.out.print("Введите сдвиг ");
+        if (iScaner.hasNextInt()) {
+            int shift = iScaner.nextInt();
+        } else {
+            System.out.println("Вы ввели явно не сдвиг :( \nВсе сначало");
+            task5HW();
+        }
+        System.out.println(Arrays.toString(arr));
+
+
+    }
 }
