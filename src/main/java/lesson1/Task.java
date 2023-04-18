@@ -12,10 +12,10 @@ public class Task {
         //ex4();
         //ex5();
         //Les1_HW-------------------------------------------
-        //task1HW();
-        //task2HW();
-        //task3HW();
-        //task4HW();
+        task1HW();
+        task2HW();
+        task3HW();
+        task4HW();
         task5HW();
     }
 
@@ -85,7 +85,6 @@ public class Task {
     }
 
 
-
     //Les1_HW--------------------------------------
     //Task1
     private static void task1HW() {
@@ -126,7 +125,7 @@ public class Task {
         Scanner iScaner = new Scanner(System.in);
         int lens = 0; //как можно этого избежать или это не критично?
 
-        System.out.print("Введите длинну массива: ");
+        System.out.print("Введите длинну массива: ");// Как это более правильно реализовать?
         if (iScaner.hasNextInt()) {
             lens = iScaner.nextInt();
         } else {
@@ -151,7 +150,7 @@ public class Task {
             }
         }
         System.out.printf("Минимальное в массиве = %d\n", minInArr);
-        System.out.printf("Максимальное в массиве = %d", maxInArr);
+        System.out.printf("Максимальное в массиве = %d\n", maxInArr);
     }
 
 
@@ -192,14 +191,14 @@ public class Task {
         GregorianCalendar calendar = new GregorianCalendar();
         int time = calendar.get(Calendar.HOUR_OF_DAY);
 
-        if (time >= 5 && time < 12){
-            System.out.printf("Доброе утро, %s", name);
+        if (time >= 5 && time < 12) {
+            System.out.printf("Доброе утро, %s\n", name);
         } else if (time >= 12 && time < 18) {
-            System.out.printf("Добрый день, %s", name);
-        } else if (time >=18 && time < 23) {
-            System.out.printf("Добрый вечер, %s", name);
+            System.out.printf("Добрый день, %s\n", name);
+        } else if (time >= 18 && time < 23) {
+            System.out.printf("Добрый вечер, %s\n", name);
         } else {
-            System.out.printf("Доброй ночи, %s", name);
+            System.out.printf("Доброй ночи, %s\n", name);
         }
     }
 
@@ -207,17 +206,44 @@ public class Task {
     //task5
     private static void task5HW() {
         Scanner iScaner = new Scanner(System.in);
-        int[] arr = {0,1,2,3,4,5,6,7,8,9};
+        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int shift = 0;
 
         System.out.print("Введите сдвиг ");
+
         if (iScaner.hasNextInt()) {
-            int shift = iScaner.nextInt();
+            shift = iScaner.nextInt();
         } else {
-            System.out.println("Вы ввели явно не сдвиг :( \nВсе сначало");
-            task5HW();
+            System.out.println("Вы ввели явно не сдвиг :( \nПерезапустите");
         }
         System.out.println(Arrays.toString(arr));
+        if (shift > 0 ){
+            System.out.println(Arrays.toString(shiftArrRight(arr, shift)));
+        }else {
+            System.out.println(Arrays.toString(shiftArrLeft(arr, -1 * shift)));
+        }
 
+    }
 
+    private static int[] shiftArrLeft(int[] arr, int shift) {
+        for (int j = 0; j < shift; j++) {
+            int temp = arr[0];
+            for (int i = 0; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[arr.length - 1] = temp;
+        }
+        return arr;
+    }
+
+    private static int[] shiftArrRight(int[] arr, int shift) {
+        for (int j = 0; j < shift; j++) {
+            int temp = arr[arr.length - 1];
+            for (int i = arr.length - 1; i > 0; i--) {
+                arr[i] = arr[i - 1];
+            }
+            arr[0] = temp;
+        }
+        return arr;
     }
 }
