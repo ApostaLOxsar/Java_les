@@ -11,7 +11,7 @@ public class task {
     public static void main(String[] args) {
         //System.out.println(zipString("aaabbdfffe"));
         //HW2-----------------------------------
-        //task1();
+        task1();
         task2();
     }
 
@@ -46,7 +46,7 @@ public class task {
             String temp1 = json.get(key);
             String temp2 = "null";
             //в чем отличие (!"null".equals(json.get(key))) от (!Object.equals("null", json.get(key))
-            if (!"null".equals(json.get(key))) {
+            if (!Objects.equals("null", json.get(key))) {
                 if (!first) {
                     result.append(" and ");
                 }
